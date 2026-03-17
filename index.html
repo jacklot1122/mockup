@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Frankston Electrical &amp; Air Group | Licensed Electrician &amp; HVAC</title>
+  <meta name="description" content="Frankston's trusted electrical & HVAC specialists. 24/7 emergency support, licensed & accredited.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{font-family:'Inter',system-ui,sans-serif;color:#1e293b;background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    ul{list-style:none}
+    button{font-family:inherit;cursor:pointer}
+    :root{
+      --navy:#0a1628;--blue:#2563eb;--blue-d:#1d4ed8;--amber:#f59e0b;--green:#10b981;
+      --g50:#f8fafc;--g100:#f1f5f9;--g200:#e2e8f0;--g400:#94a3b8;--g500:#64748b;--g600:#475569;--g700:#334155;--g900:#0f172a;
+      --r:10px;--r-lg:16px;--max:1140px;
+      --shadow:0 1px 3px rgba(0,0,0,.06),0 4px 12px rgba(0,0,0,.06);
+      --shadow-lg:0 4px 6px rgba(0,0,0,.04),0 10px 40px rgba(0,0,0,.08);
+    }
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+    .sec{padding:72px 0}
+    .tag{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+    .h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800;line-height:1.18;color:var(--g900);margin-bottom:12px}
+    .sub{font-size:.92rem;color:var(--g600);max-width:560px;line-height:1.65}
+    .btn{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;font-size:.88rem;font-weight:600;border-radius:8px;border:none;transition:all .2s;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+    .btn-p{background:var(--blue);color:#fff}
+    .btn-p:hover{background:var(--blue-d)}
+    .btn-a{background:var(--amber);color:var(--navy)}
+    .btn-a:hover{background:#e09000}
+    .btn-o{background:transparent;border:1.5px solid var(--g200);color:var(--g700)}
+    .btn-o:hover{border-color:var(--blue);color:var(--blue)}
+    .btn-w{background:#fff;color:var(--navy)}
+    .btn-w:hover{background:var(--g100)}
+
+    /* HEADER */
+    .hdr{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,.6);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06);transition:all .25s}
+    .hdr.s{background:rgba(255,255,255,.97);box-shadow:0 1px 2px rgba(0,0,0,.06);border-bottom-color:var(--g200)}
+    .hdr.s .nav-a{color:var(--g700)}.hdr.s .nav-a:hover{color:var(--blue)}
+    .hdr.s .lg-t{color:var(--navy)}.hdr.s .lg-s{color:var(--g500)}
+    .hdr.s .ph{color:var(--navy)}.hdr.s .ham span{background:var(--navy)}
+    .hdr-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+    .lg{display:flex;align-items:center;gap:10px}
+    .lg img{height:34px;width:auto;border-radius:4px}
+    .lg-t{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:.92rem;color:#fff;line-height:1.15;transition:color .25s}
+    .lg-s{font-size:.62rem;color:rgba(255,255,255,.5);font-weight:500;transition:color .25s}
+    .nav-d{display:flex;align-items:center;gap:22px}
+    .nav-a{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.8);transition:color .2s}
+    .nav-a:hover{color:#fff}
+    .hdr-r{display:flex;align-items:center;gap:12px}
+    .ph{font-weight:600;font-size:.82rem;color:#fff;display:flex;align-items:center;gap:5px;transition:color .25s}
+    .ph svg{width:15px;height:15px}
+    .hdr-btn{padding:8px 18px;font-size:.78rem;border-radius:6px}
+    .ham{display:none;background:none;border:none;padding:10px;-webkit-tap-highlight-color:transparent}
+    .ham span{display:block;width:22px;height:2px;background:#fff;margin:4px 0;border-radius:2px;transition:all .3s}
+
+    /* MOBILE NAV */
+    .mob-nav{position:fixed;inset:0;z-index:99;background:var(--navy);transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;padding:80px 24px 24px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+    .mob-nav.open{transform:translateX(0)}
+    .mob-nav a{display:block;padding:14px 0;font-size:1.05rem;font-weight:600;color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+    .mob-nav a:last-child{border:none}
+    .mob-cta{margin-top:auto;padding-top:20px;display:flex;flex-direction:column;gap:10px}
+    .mob-cta .btn{justify-content:center;padding:14px;font-size:.95rem;border-radius:8px;width:100%;text-align:center}
+    .mob-tel{background:transparent;border:1.5px solid rgba(255,255,255,.25);color:#fff}
+    .body-lock{overflow:hidden}
+
+    /* HERO */
+    .hero{position:relative;background:linear-gradient(160deg,var(--navy) 0%,#0f2847 60%,#132e52 100%);padding:100px 0 56px;overflow:hidden}
+    .hero::after{content:'';position:absolute;top:-40%;right:-15%;width:600px;height:600px;background:radial-gradient(circle,rgba(37,99,235,.08),transparent 70%);border-radius:50%}
+    .hero-g{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;position:relative;z-index:1}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.25);color:var(--green);padding:6px 14px;border-radius:6px;font-size:.73rem;font-weight:600;margin-bottom:20px}
+    .hero-badge .dot{width:7px;height:7px;background:var(--green);border-radius:50%;animation:blink 2s infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+    .hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800;color:#fff;line-height:1.12;margin-bottom:16px}
+    .hero h1 em{font-style:normal;color:var(--amber)}
+    .hero-p{font-size:.92rem;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:24px;max-width:480px}
+    .hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+    .hero-btns .btn{padding:13px 26px}
+    .hero-facts{display:flex;gap:28px;flex-wrap:wrap}
+    .hf{display:flex;align-items:center;gap:8px}
+    .hf-ico{width:32px;height:32px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0}
+    .hf-txt{font-size:.72rem;color:rgba(255,255,255,.45);line-height:1.35}
+    .hf-txt b{display:block;color:rgba(255,255,255,.9);font-weight:600;font-size:.76rem}
+
+    .hero-form{background:rgba(255,255,255,.04);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-lg);padding:28px;max-width:420px;width:100%}
+    .hero-form h3{color:#fff;font-size:1.02rem;font-weight:700;margin-bottom:2px}
+    .hero-form .fs{color:rgba(255,255,255,.4);font-size:.76rem;margin-bottom:18px}
+    .fg{margin-bottom:10px}
+    .fg label{display:block;font-size:.7rem;font-weight:600;color:rgba(255,255,255,.5);margin-bottom:3px}
+    .fg input,.fg select,.fg textarea{width:100%;padding:9px 12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:7px;color:#fff;font-size:.84rem;font-family:inherit;outline:none;transition:border-color .2s;-webkit-appearance:none}
+    .fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.22)}
+    .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue)}
+    .fg select option{background:var(--navy);color:#fff}
+    .fg textarea{resize:vertical;min-height:56px}
+    .fr{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .f-submit{width:100%;justify-content:center;padding:11px 24px;margin-top:2px;border-radius:7px}
+    .f-note{text-align:center;font-size:.66rem;color:rgba(255,255,255,.25);margin-top:6px}
+
+    /* PROOF BAR */
+    .proof{background:var(--g50);border-top:1px solid var(--g200);border-bottom:1px solid var(--g200);padding:16px 0}
+    .proof-row{display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap}
+    .pi{display:flex;align-items:center;gap:7px;font-size:.8rem;color:var(--g600);font-weight:500}
+    .pi svg{width:16px;height:16px;color:var(--green);flex-shrink:0}
+
+    /* SERVICES */
+    .srv-g{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
+    .srv-c{background:#fff;border:1px solid var(--g200);border-radius:var(--r-lg);overflow:hidden;transition:box-shadow .3s,border-color .3s}
+    .srv-c:hover{border-color:var(--g200);box-shadow:var(--shadow-lg)}
+    .srv-c img{width:100%;height:180px;object-fit:cover}
+    .srv-b{padding:20px 18px}
+    .srv-c h3{font-size:.98rem;font-weight:700;color:var(--g900);margin-bottom:8px}
+    .srv-c p{font-size:.82rem;color:var(--g600);line-height:1.6;margin-bottom:10px}
+    .srv-l{display:flex;flex-direction:column;gap:4px;margin-bottom:14px}
+    .srv-l li{font-size:.78rem;color:var(--g700);display:flex;align-items:center;gap:6px}
+    .srv-l li::before{content:'✓';color:var(--green);font-weight:700;font-size:.72rem}
+    .srv-link{font-size:.82rem;font-weight:600;color:var(--blue)}
+
+    /* WHY */
+    .why{background:var(--g50)}
+    .why-g{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+    .why-c{background:#fff;border:1px solid var(--g200);border-radius:var(--r);padding:22px 18px;transition:border-color .25s}
+    .why-c:hover{border-color:var(--blue)}
+    .why-c h3{font-size:.88rem;font-weight:700;color:var(--g900);margin-bottom:6px}
+    .why-c p{font-size:.8rem;color:var(--g600);line-height:1.55}
+
+    /* REBATE */
+    .reb{background:linear-gradient(150deg,var(--navy),#0f2847);position:relative;overflow:hidden}
+    .reb::before{content:'';position:absolute;top:-40%;right:-8%;width:400px;height:400px;background:radial-gradient(circle,rgba(245,158,11,.1),transparent 70%);border-radius:50%}
+    .reb-g{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;position:relative;z-index:1}
+    .reb-txt{max-width:540px}
+    .reb h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.65rem,4vw,2.4rem);font-weight:800;color:#fff;line-height:1.22;margin-bottom:16px}
+    .reb h2 em{font-style:normal;color:var(--amber)}
+    .reb-desc{font-size:.9rem;color:rgba(255,255,255,.6);line-height:1.75;margin-bottom:24px}
+    .reb-steps{display:flex;flex-direction:column;gap:14px;margin-bottom:26px}
+    .rs{display:flex;align-items:flex-start;gap:14px}
+    .rs-n{width:30px;height:30px;min-width:30px;background:var(--amber);color:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.75rem;margin-top:1px}
+    .rs span{font-size:.88rem;color:rgba(255,255,255,.75);line-height:1.5}
+    .reb-card{background:rgba(255,255,255,.04);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-lg);padding:36px;text-align:center}
+    .reb-card .lbl{font-size:.72rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:6px}
+    .reb-card .amt{font-family:'Plus Jakarta Sans',sans-serif;font-size:2.8rem;font-weight:800;color:var(--amber);line-height:1}
+    .reb-card .amts{font-size:.84rem;color:rgba(255,255,255,.42);margin:6px 0 18px}
+    .reb-tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+    .reb-tag{background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);color:var(--green);padding:5px 12px;border-radius:6px;font-size:.7rem;font-weight:600}
+
+    /* CALCULATOR */
+    .calc{background:#fff}
+    .calc-box{max-width:680px;margin:36px auto 0;background:var(--g50);border:1px solid var(--g200);border-radius:var(--r-lg);padding:28px}
+    .calc-toggle{display:flex;gap:6px;margin-bottom:18px;background:var(--g200);border-radius:8px;padding:3px}
+    .ct-btn{flex:1;padding:9px 12px;border:none;border-radius:6px;background:transparent;font-size:.82rem;font-weight:600;color:var(--g600);transition:all .2s;text-align:center}
+    .ct-btn.sel{background:#fff;color:var(--g900);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+    .calc-step{margin-bottom:16px}
+    .cs-label{font-size:.82rem;font-weight:700;color:var(--g900);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+    .cs-num{width:22px;height:22px;min-width:22px;background:var(--blue);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800}
+    .c-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .c-opt{background:#fff;border:1.5px solid var(--g200);border-radius:8px;padding:11px 12px;font-size:.8rem;color:var(--g700);text-align:left;display:flex;align-items:center;gap:8px;transition:all .15s;-webkit-tap-highlight-color:transparent}
+    .c-opt:hover{border-color:var(--blue)}
+    .c-opt.sel{border-color:var(--blue);background:rgba(37,99,235,.04);color:var(--blue);font-weight:600}
+    .c-opt .oi{font-size:1rem;line-height:1}
+    .c-wide{grid-column:1/-1}
+    .c-sizes{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+    .c-sz{background:#fff;border:1.5px solid var(--g200);border-radius:8px;padding:10px 6px;font-size:.78rem;color:var(--g700);text-align:center;transition:all .15s;-webkit-tap-highlight-color:transparent}
+    .c-sz:hover{border-color:var(--blue)}
+    .c-sz.sel{border-color:var(--blue);background:rgba(37,99,235,.04);color:var(--blue);font-weight:600}
+    .c-sz b{display:block;font-size:.92rem;margin-bottom:1px}
+    .c-hint{font-size:.7rem;color:var(--g500);margin-top:6px;line-height:1.45}
+    .c-res{background:var(--navy);border-radius:var(--r);padding:24px;text-align:center;display:none;margin-top:16px}
+    .c-res.show{display:block;animation:fadein .35s ease}
+    @keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+    .c-res-lbl{font-size:.7rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.06em;font-weight:600;margin-bottom:2px}
+    .c-res-amt{font-family:'Plus Jakarta Sans',sans-serif;font-size:2.1rem;font-weight:800;color:var(--amber);line-height:1.2;margin-bottom:2px}
+    .c-res-sav{font-size:.82rem;color:rgba(255,255,255,.5);margin-bottom:4px}
+    .c-res-min{font-size:.76rem;color:rgba(255,255,255,.35);margin-bottom:12px}
+    .c-res .btn{margin-top:2px}
+    .c-res-note{font-size:.68rem;color:rgba(255,255,255,.25);line-height:1.45;margin-top:12px;max-width:520px;margin-left:auto;margin-right:auto}
+
+    /* ABOUT */
+    .about-g{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center;margin-top:36px}
+    .about-img{position:relative;border-radius:var(--r-lg);overflow:hidden}
+    .about-img>img{width:100%;display:block;border-radius:var(--r-lg)}
+    .about-float{position:absolute;bottom:14px;left:14px;right:14px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:var(--r);padding:12px;display:flex;gap:10px;box-shadow:0 4px 16px rgba(0,0,0,.1)}
+    .af-s{text-align:center;flex:1}
+    .af-n{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.1rem;font-weight:800;color:var(--blue)}
+    .af-l{font-size:.62rem;color:var(--g500);font-weight:500}
+    .about-txt h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.25rem;font-weight:800;color:var(--g900);margin-bottom:14px;line-height:1.2}
+    .about-txt p{font-size:.86rem;color:var(--g600);line-height:1.75;margin-bottom:10px}
+    .about-tags{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 20px}
+    .a-tag{background:var(--g50);border:1px solid var(--g200);padding:5px 12px;border-radius:6px;font-size:.72rem;font-weight:600;color:var(--g700);display:flex;align-items:center;gap:4px}
+    .a-tag .ck{color:var(--green)}
+
+    /* VIDEO */
+    .vid-sec{background:var(--g50)}
+    .vid-w{max-width:720px;margin:36px auto 0;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg);position:relative;aspect-ratio:16/9;cursor:pointer}
+    .vid-w img{width:100%;height:100%;object-fit:cover}
+    .vid-o{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.28);transition:background .2s}
+    .vid-o:hover{background:rgba(0,0,0,.4)}
+    .vid-p{width:60px;height:60px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,.15);transition:transform .2s}
+    .vid-o:hover .vid-p{transform:scale(1.08)}
+    .vid-p svg{width:22px;height:22px;margin-left:3px}
+
+    /* PROJECTS */
+    .prj-g{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px}
+    .prj-c{border-radius:var(--r);overflow:hidden;aspect-ratio:1}
+    .prj-c img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+    .prj-c:hover img{transform:scale(1.05)}
+
+    /* AREAS */
+    .areas{background:var(--g50)}
+    .area-g{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px}
+    .area-c{background:#fff;border:1px solid var(--g200);border-radius:var(--r);padding:20px 18px}
+    .area-c h3{font-size:.86rem;font-weight:700;color:var(--g900);margin-bottom:10px}
+    .area-c li{font-size:.78rem;color:var(--g600);padding:3px 0 3px 14px;position:relative}
+    .area-c li::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:5px;height:5px;background:var(--blue);border-radius:50%}
+
+    /* FAQ */
+    .faq-g{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:36px}
+    .fq{background:var(--g50);border:1px solid var(--g200);border-radius:var(--r);overflow:hidden;transition:border-color .2s}
+    .fq.act{border-color:var(--blue)}
+    .fq-q{padding:14px 16px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:.84rem;font-weight:600;color:var(--g900);background:none;border:none;width:100%;text-align:left;font-family:inherit;-webkit-tap-highlight-color:transparent}
+    .fq-q:hover{color:var(--blue)}
+    .fq-chev{width:16px;height:16px;min-width:16px;transition:transform .25s}
+    .fq.act .fq-chev{transform:rotate(180deg)}
+    .fq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+    .fq-ai{padding:0 16px 14px;font-size:.82rem;color:var(--g600);line-height:1.65}
+
+    /* CTA */
+    .cta{background:var(--blue);text-align:center;position:relative;overflow:hidden}
+    .cta::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 40%,rgba(255,255,255,.04))}
+    .cta .wrap{position:relative;z-index:1}
+    .cta h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800;color:#fff;margin-bottom:10px}
+    .cta-p{font-size:.92rem;color:rgba(255,255,255,.7);max-width:480px;margin:0 auto 24px;line-height:1.65}
+    .cta-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+    .cta-btns .btn{padding:13px 26px}
+    .cta-tel-btn{background:transparent;border:1.5px solid rgba(255,255,255,.35);color:#fff}
+    .cta-tel-btn:hover{background:rgba(255,255,255,.08)}
+    .cta-info{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+    .cta-info span{display:flex;align-items:center;gap:5px;font-size:.78rem;color:rgba(255,255,255,.6)}
+    .cta-info svg{width:14px;height:14px}
+
+    /* FOOTER */
+    .ftr{background:var(--navy);color:rgba(255,255,255,.55);padding:56px 0 0}
+    .ftr-g{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:28px;margin-bottom:40px}
+    .ftr-brand .lg{margin-bottom:10px}
+    .ftr-brand .lg-t{color:#fff}.ftr-brand .lg-s{color:rgba(255,255,255,.35)}
+    .ftr-brand>p{font-size:.8rem;line-height:1.65;margin-bottom:14px}
+    .ftr h4{color:#fff;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px}
+    .ftr-links{display:flex;flex-direction:column;gap:8px}
+    .ftr-links a{font-size:.8rem;transition:color .2s}.ftr-links a:hover{color:var(--blue)}
+    .ftr-ci{display:flex;gap:8px;margin-bottom:8px;font-size:.8rem}.ftr-ci svg{min-width:14px;margin-top:3px}
+    .ftr-bot{border-top:1px solid rgba(255,255,255,.06);padding:14px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    .ftr-bot p{font-size:.7rem}
+    .ftr-lic{display:flex;gap:10px;flex-wrap:wrap}
+    .ftr-lic span{font-size:.66rem;background:rgba(255,255,255,.05);padding:3px 10px;border-radius:4px;font-weight:500}
+    .ack{background:rgba(0,0,0,.12);padding:12px 0;text-align:center;font-size:.68rem;color:rgba(255,255,255,.25);line-height:1.55}
+
+    /* MOCKUP BAR */
+    .mock{position:fixed;bottom:0;left:0;right:0;background:var(--navy);color:#fff;padding:8px 16px;display:flex;align-items:center;justify-content:center;gap:8px;z-index:9999;font-size:.74rem;box-shadow:0 -2px 12px rgba(0,0,0,.12)}
+    .mock b{color:var(--amber)}
+
+    /* ANIMATIONS */
+    .fi{opacity:0;transform:translateY(20px);transition:opacity .5s,transform .5s}.fi.v{opacity:1;transform:none}
+
+    /* ===== MOBILE ===== */
+    @media(max-width:1024px){
+      .hero-g{grid-template-columns:1fr;text-align:center}
+      .hero-p{margin-left:auto;margin-right:auto}
+      .hero-btns{justify-content:center}
+      .hero-facts{justify-content:center}
+      .hero-form-wrap{display:none}
+      .nav-d{display:none}
+      .ham{display:block}
+      .srv-g{grid-template-columns:1fr 1fr}
+      .why-g{grid-template-columns:1fr 1fr}
+      .reb-g{grid-template-columns:1fr}.reb-card-w{display:none}
+      .reb h2{font-size:clamp(1.5rem,6vw,2rem)}
+      .reb-desc{font-size:.88rem;line-height:1.7}
+      .rs span{font-size:.86rem}
+      .about-g{grid-template-columns:1fr}
+      .area-g{grid-template-columns:1fr 1fr}
+      .prj-g{grid-template-columns:1fr 1fr}
+      .ftr-g{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:640px){
+      body{padding-bottom:56px}
+      .sec{padding:48px 0}
+      .wrap{padding:0 16px}
+      .hero{padding:88px 0 40px}
+      .hero h1{font-size:clamp(1.6rem,6.5vw,2.2rem)}
+      .hero-btns{flex-direction:column;align-items:stretch}
+      .hero-btns .btn{justify-content:center;min-height:48px;font-size:.92rem}
+      .hero-facts{gap:16px}
+      .hf{gap:6px}
+      .srv-g{grid-template-columns:1fr}
+      .why-g{grid-template-columns:1fr}
+      .why-c{padding:18px 16px}
+      .why-c h3{font-size:.92rem}
+      .why-c p{font-size:.84rem}
+      .faq-g{grid-template-columns:1fr}
+      .fq-q{padding:16px;font-size:.88rem;min-height:48px}
+      .fq-ai{padding:0 16px 16px;font-size:.84rem}
+      .area-g{grid-template-columns:1fr}
+      .area-c li{font-size:.82rem;padding:5px 0 5px 14px}
+      .cta-btns{flex-direction:column;align-items:stretch}
+      .cta-btns .btn{justify-content:center;min-height:48px;font-size:.92rem}
+      .ftr-g{grid-template-columns:1fr;gap:20px}
+      .ftr-links a{font-size:.84rem;padding:4px 0;min-height:44px;display:flex;align-items:center}
+      .ftr-bot{flex-direction:column;align-items:flex-start}
+      .proof-row{gap:10px;justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px}
+      .proof-row::-webkit-scrollbar{display:none}
+      .pi{font-size:.74rem;white-space:nowrap;flex-shrink:0}
+      .calc-box{padding:20px 14px}
+      .c-opts{grid-template-columns:1fr}
+      .c-opt{min-height:48px;padding:12px 14px;font-size:.86rem}
+      .c-wide{grid-column:auto}
+      .c-sizes{grid-template-columns:1fr 1fr}
+      .c-sz{min-height:48px;padding:12px 8px;font-size:.82rem}
+      .ct-btn{min-height:44px;font-size:.86rem}
+      .about-float{padding:10px;gap:6px;bottom:10px;left:10px;right:10px}
+      .af-n{font-size:.95rem}.af-l{font-size:.58rem}
+      .about-txt h3{font-size:1.1rem}
+      .about-txt p{font-size:.88rem}
+      .about-tags{gap:6px}
+      .a-tag{font-size:.74rem;padding:6px 10px}
+      .prj-g{gap:8px}
+      .reb .sec{padding:48px 0}
+      .reb h2{font-size:clamp(1.4rem,6.5vw,1.85rem);line-height:1.25}
+      .reb-steps{gap:12px;margin-bottom:22px}
+      .rs-n{width:28px;height:28px;min-width:28px}
+      .rs span{font-size:.84rem}
+      .reb-desc{font-size:.84rem}
+      .reb .btn{min-height:48px;font-size:.92rem;width:100%;justify-content:center}
+      .cta h2{font-size:clamp(1.4rem,5vw,1.8rem)}
+      .srv-c img{height:160px}
+      .srv-link{min-height:44px;display:inline-flex;align-items:center}
+      .nav-a{min-height:44px;display:flex;align-items:center}
+      .fg input,.fg select,.fg textarea{font-size:16px;padding:12px 14px}
+      .mock{display:none}
+    }
+    /* Sticky mobile CTA bar */
+    .mob-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:98;background:var(--navy);border-top:1px solid rgba(255,255,255,.1);padding:8px 12px;gap:8px}
+    .mob-bar a{flex:1;text-align:center;font-size:.84rem;min-height:44px;display:flex;align-items:center;justify-content:center;border-radius:8px;font-weight:600}
+    .mob-bar .mb-q{background:var(--blue);color:#fff}
+    .mob-bar .mb-c{background:transparent;border:1.5px solid rgba(255,255,255,.25);color:#fff}
+    @media(max-width:640px){
+      .mob-bar{display:flex}
+    }
+    @media(max-width:380px){
+      .hero-facts{flex-direction:column;align-items:center;gap:10px}
+      .hdr-btn{display:none}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hdr" id="hdr">
+    <div class="wrap">
+      <div class="hdr-in">
+        <a href="#hero" class="lg">
+          <img src="https://assets.cdn.filesafe.space/oECKc1PBCRjKy6bkZNRD/media/692452aae4747c6f50c30772.png" alt="FEAG Logo">
+          <div><div class="lg-t">FEAG</div><div class="lg-s">Electrical &amp; Air Conditioning</div></div>
+        </a>
+        <nav class="nav-d">
+          <a href="#services" class="nav-a">Services</a>
+          <a href="#why" class="nav-a">Why Us</a>
+          <a href="#rebates" class="nav-a">Rebates</a>
+          <a href="#calculator" class="nav-a">Calculator</a>
+          <a href="#about" class="nav-a">About</a>
+          <a href="#faq" class="nav-a">FAQ</a>
+        </nav>
+        <div class="hdr-r">
+          <a href="tel:0401663400" class="ph">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            0401 663 400
+          </a>
+          <a href="#contact" class="btn btn-p hdr-btn">Free Quote</a>
+        </div>
+        <button class="ham" id="hamBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mob-nav" id="mobNav">
+    <a href="#services" onclick="closeMob()">Services</a>
+    <a href="#why" onclick="closeMob()">Why Us</a>
+    <a href="#rebates" onclick="closeMob()">Rebates</a>
+    <a href="#calculator" onclick="closeMob()">Calculator</a>
+    <a href="#about" onclick="closeMob()">About</a>
+    <a href="#projects" onclick="closeMob()">Projects</a>
+    <a href="#areas" onclick="closeMob()">Areas</a>
+    <a href="#faq" onclick="closeMob()">FAQ</a>
+    <div class="mob-cta">
+      <a href="#contact" class="btn btn-p" onclick="closeMob()">Get a Free Quote</a>
+      <a href="tel:0401663400" class="btn mob-tel">Call 0401 663 400</a>
+    </div>
+  </nav>
+
+  <section class="hero" id="hero">
+    <div class="wrap">
+      <div class="hero-g">
+        <div class="hero-content">
+          <div class="hero-badge"><span class="dot"></span> 24/7 Emergency Available</div>
+          <h1>Frankston's Trusted<br>Sparky &amp; Air Con <em>Team</em></h1>
+          <p class="hero-p">Licensed electrical &amp; HVAC for homes and businesses across Frankston, the Mornington Peninsula &amp; Greater Melbourne. Run by Ben Settree — 20+ years in the trade, Navy-trained.</p>
+          <div class="hero-btns">
+            <a href="#contact" class="btn btn-p">Get a Free Quote</a>
+            <a href="#calculator" class="btn btn-a">Check Your Rebate</a>
+          </div>
+          <div class="hero-facts">
+            <div class="hf"><div class="hf-ico">🎖️</div><div class="hf-txt"><b>Navy Trained</b>Discipline &amp; safety</div></div>
+            <div class="hf"><div class="hf-ico">⭐</div><div class="hf-txt"><b>5-Star Rated</b>Local reviews</div></div>
+            <div class="hf"><div class="hf-ico">🛡️</div><div class="hf-txt"><b>REC, RTA, VBA</b>Fully licensed</div></div>
+          </div>
+        </div>
+        <div class="hero-form-wrap">
+          <div class="hero-form" id="contact">
+            <h3>Get a Free Quote</h3>
+            <p class="fs">We'll call you back within 2 hours</p>
+            <form onsubmit="event.preventDefault();">
+              <div class="fr">
+                <div class="fg"><label>Name</label><input type="text" placeholder="Your name"></div>
+                <div class="fg"><label>Phone</label><input type="tel" placeholder="0400 000 000"></div>
+              </div>
+              <div class="fg"><label>Email</label><input type="email" placeholder="you@email.com"></div>
+              <div class="fg">
+                <label>What do you need?</label>
+                <select>
+                  <option>Pick one...</option>
+                  <option>Electrical — Repairs</option>
+                  <option>Electrical — New Install</option>
+                  <option>Switchboard Upgrade</option>
+                  <option>Air Con — Install</option>
+                  <option>Air Con — Service/Repair</option>
+                  <option>Heating &amp; Ventilation</option>
+                  <option>Safety Audit</option>
+                  <option>Emergency Callout</option>
+                  <option>Rebate Enquiry</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="fg"><label>Details (optional)</label><textarea placeholder="Brief description of the job..."></textarea></div>
+              <button type="submit" class="btn btn-p f-submit">Send Request</button>
+              <p class="f-note">No spam. Quick response. Your info stays private.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="proof">
+    <div class="wrap">
+      <div class="proof-row">
+        <span class="pi"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> <b>20+ Years</b>&nbsp;Experience</span>
+        <span class="pi"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> <b>REC, RTA &amp; VBA</b>&nbsp;Accredited</span>
+        <span class="pi"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> Aboriginal-Owned</span>
+        <span class="pi"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> 24/7 Emergency</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="sec" id="services">
+    <div class="wrap">
+      <div class="fi">
+        <div class="tag">Services</div>
+        <h2 class="h2">What we do</h2>
+        <p class="sub">Electrical, heating, cooling and compliance for residential, commercial &amp; industrial.</p>
+      </div>
+      <div class="srv-g">
+        <div class="srv-c fi">
+          <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/oECKc1PBCRjKy6bkZNRD/media/6922f0c78c174deb9844555b.webp" alt="Electrical work">
+          <div class="srv-b">
+            <h3>Electrical</h3>
+            <p>Repairs, installs, switchboard upgrades, lighting, rewiring. Domestic through to industrial. Emergency callouts 24/7.</p>
+            <ul class="srv-l">
+              <li>Power fault diagnosis &amp; repairs</li>
+              <li>Switchboard upgrades</li>
+              <li>Lighting &amp; full rewires</li>
+              <li>Domestic, commercial, industrial</li>
+            </ul>
+            <a href="#contact" class="srv-link">Get a quote →</a>
+          </div>
+        </div>
+        <div class="srv-c fi">
+          <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/oECKc1PBCRjKy6bkZNRD/media/692463f9eb10143233f3f75a.png" alt="Air conditioning">
+          <div class="srv-b">
+            <h3>Air Conditioning &amp; Heating</h3>
+            <p>Split systems, ducted, servicing, repairs. We handle installs and maintenance for year-round comfort.</p>
+            <ul class="srv-l">
+              <li>Split system supply &amp; install</li>
+              <li>Servicing &amp; repairs</li>
+              <li>Heating &amp; ventilation</li>
+              <li>Rebate-eligible upgrades</li>
+            </ul>
+            <a href="#contact" class="srv-link">Get a quote →</a>
+          </div>
+        </div>
+        <div class="srv-c fi">
+          <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/oECKc1PBCRjKy6bkZNRD/media/6922fbc5e7de661b0279cb59.png" alt="Safety audit">
+          <div class="srv-b">
+            <h3>Safety Audits</h3>
+            <p>Full electrical compliance checks for homes, rental properties, and workplaces. Find the risks before they find you.</p>
+            <ul class="srv-l">
+              <li>Compliance inspections</li>
+              <li>Fault detection</li>
+              <li>Rental &amp; business audits</li>
+              <li>Preventive maintenance</li>
+            </ul>
+            <a href="#contact" class="srv-link">Get a quote →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec why" id="why">
+    <div class="wrap">
+      <div class="fi">
+        <div class="tag">Why FEAG</div>
+        <h2 class="h2">Why locals keep calling us back</h2>
+      </div>
+      <div class="why-g">
+        <div class="why-c fi"><h3>20+ years in the trade</h3><p>Licensed electrician &amp; HVAC tech, trained in the Royal Australian Navy. Decades of real-world experience.</p></div>
+        <div class="why-c fi"><h3>Fast local response</h3><p>Based in Frankston. We get to you quickly, especially for emergencies.</p></div>
+        <div class="why-c fi"><h3>One team, everything covered</h3><p>Electrical, split systems, ducted, rewiring, safety audits. No need to juggle multiple tradies.</p></div>
+        <div class="why-c fi"><h3>Upfront honest pricing</h3><p>You get a clear quote before we start. No surprises on the invoice.</p></div>
+        <div class="why-c fi"><h3>Consistently 5-star rated</h3><p>Real reviews from real customers across Frankston, Seaford, Langwarrin &amp; the Peninsula.</p></div>
+        <div class="why-c fi"><h3>Rebate claim support</h3><p>We walk you through the Victorian Energy Upgrades program and handle the paperwork.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec reb" id="rebates">
+    <div class="wrap">
+      <div class="reb-g">
+        <div class="reb-txt fi">
+          <div class="tag" style="color:var(--amber)">Victorian Rebates</div>
+          <h2>Save up to <em>$5,530</em> on a new air con system</h2>
+          <p class="reb-desc">Through the Victorian Energy Upgrades (VEU) program, eligible Victorian households and businesses can get discounts on efficient reverse cycle air conditioners, whether you're replacing an old gas heater or installing something new.</p>
+          <div class="reb-steps">
+            <div class="rs"><div class="rs-n">1</div><span>We check your eligibility, free, no obligation</span></div>
+            <div class="rs"><div class="rs-n">2</div><span>Choose from VEU-approved reverse cycle units</span></div>
+            <div class="rs"><div class="rs-n">3</div><span>We install &amp; handle all compliance</span></div>
+            <div class="rs"><div class="rs-n">4</div><span>We lodge the rebate paperwork for you</span></div>
+          </div>
+          <a href="#calculator" class="btn btn-a">Estimate My Rebate ↓</a>
+        </div>
+        <div class="reb-card-w fi">
+          <div class="reb-card">
+            <div class="lbl">VEU Discount Up To</div>
+            <div class="amt">$5,530</div>
+            <div class="amts">For households replacing ducted gas heating</div>
+            <div class="reb-tags">
+              <span class="reb-tag">✓ All Victorians eligible</span>
+              <span class="reb-tag">✓ VEU-approved units</span>
+              <span class="reb-tag">✓ Paperwork handled</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec calc" id="calculator">
+    <div class="wrap">
+      <div class="fi" style="text-align:center">
+        <div class="tag" style="display:flex;justify-content:center">VEU Rebate Calculator</div>
+        <h2 class="h2">Estimate your discount</h2>
+        <p class="sub" style="margin:0 auto">Based on the official Victorian Energy Upgrades program. Pick your situation and get an instant estimate.</p>
+      </div>
+      <div class="calc-box fi">
+        <div class="calc-toggle">
+          <button class="ct-btn sel" onclick="setType('household',this)">Household</button>
+          <button class="ct-btn" onclick="setType('business',this)">Business</button>
+        </div>
+        <div class="calc-step">
+          <div class="cs-label"><span class="cs-num">1</span> What are you installing?</div>
+          <div class="c-opts" id="cSys">
+            <button class="c-opt" onclick="pick(this,'sys','split')"><span class="oi">❄️</span> Split system (room)</button>
+            <button class="c-opt" onclick="pick(this,'sys','ducted')"><span class="oi">🌀</span> Ducted (whole home)</button>
+          </div>
+        </div>
+        <div class="calc-step">
+          <div class="cs-label"><span class="cs-num">2</span> What are you replacing?</div>
+          <div class="c-opts" id="cEx">
+            <button class="c-opt" onclick="pick(this,'ex','gas-room')"><span class="oi">🔥</span> Gas heater (room)</button>
+            <button class="c-opt" onclick="pick(this,'ex','gas-ducted')"><span class="oi">🏠</span> Gas heater (ducted)</button>
+            <button class="c-opt" onclick="pick(this,'ex','electric')"><span class="oi">⚡</span> Electric resistance heater</button>
+            <button class="c-opt" onclick="pick(this,'ex','old-rc')"><span class="oi">♻️</span> Old reverse cycle AC</button>
+            <button class="c-opt c-wide" onclick="pick(this,'ex','none')"><span class="oi">✨</span> Nothing — new install</button>
+          </div>
+        </div>
+        <div class="calc-step">
+          <div class="cs-label"><span class="cs-num">3</span> System size?</div>
+          <div class="c-sizes" id="cSz"></div>
+          <p class="c-hint">Rough guide: 3kW = bedroom, 5–6kW = living room, 8–9kW = large open-plan. Ducted is sized for the whole house.</p>
+        </div>
+        <div class="c-res" id="cRes">
+          <div class="c-res-lbl">Estimated VEU Discount</div>
+          <div class="c-res-amt" id="cAmt"></div>
+          <div class="c-res-sav" id="cSav"></div>
+          <div class="c-res-min" id="cMin"></div>
+          <a href="#contact" class="btn btn-a">Check My Eligibility With FEAG →</a>
+          <p class="c-res-note">Estimates based on the Victorian Energy Upgrades program (energy.vic.gov.au). Actual discount depends on VEEC certificate price, location &amp; install costs. Minimum customer contribution: $200 per non-ducted unit under 10kW, $1,000 per ducted/multi-split or non-ducted over 10kW. Products must be VEU-approved with min. 5-year warranty. Property must be 2+ years old if replacing existing system. All Victorian households &amp; businesses eligible.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="about">
+    <div class="wrap">
+      <div class="fi"><div class="tag">About</div><h2 class="h2">The bloke behind FEAG</h2></div>
+      <div class="about-g">
+        <div class="about-img fi">
+          <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_900/u_https://assets.cdn.filesafe.space/oECKc1PBCRjKy6bkZNRD/media/6922ae3a995c4b5ce4a09103.png" alt="Ben Settree">
+          <div class="about-float">
+            <div class="af-s"><div class="af-n">20+</div><div class="af-l">Years</div></div>
+            <div class="af-s"><div class="af-n">⭐ 5.0</div><div class="af-l">Rating</div></div>
+            <div class="af-s"><div class="af-n">24/7</div><div class="af-l">Emergency</div></div>
+          </div>
+        </div>
+        <div class="about-txt fi">
+          <h3>Ben Settree — Director, Electrician &amp; HVAC Tech</h3>
+          <p>Ben's a fully licensed sparky and air con tech with 20+ years under his belt across Melbourne and Sydney. He learned his trade in the <b>Royal Australian Navy</b> — and the discipline stuck.</p>
+          <p>He lives on the Peninsula with his wife and three kids, and proudly represents his <b>Aboriginal heritage on Boonwurrung Country</b>. Whether it's wiring, cooling, heating or an emergency at 2am — same honest service every time.</p>
+          <p style="color:var(--g700);font-style:italic">"Keep your home powered, comfortable, and safe — without the headache."</p>
+          <div class="about-tags">
+            <span class="a-tag"><span class="ck">✓</span> Licensed &amp; Accredited</span>
+            <span class="a-tag"><span class="ck">✓</span> Navy-Trained</span>
+            <span class="a-tag"><span class="ck">✓</span> 5-Star Rated</span>
+            <span class="a-tag"><span class="ck">✓</span> Aboriginal-Owned</span>
+          </div>
+          <a href="#contact" class="btn btn-p">Get a Free Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec vid-sec">
+    <div class="wrap">
+      <div class="fi" style="text-align:center">
+        <div class="tag" style="display:flex;justify-content:center">Quick intro</div>
+        <h2 class="h2">Hear it from Ben</h2>
+      </div>
+      <div class="vid-w fi" id="vidWrap" onclick="playVid()">
+        <img src="https://img.youtube.com/vi/lBaRJRH5lT0/maxresdefault.jpg" alt="Ben Settree intro video">
+        <div class="vid-o">
+          <div class="vid-p"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0a1628"><polygon points="8,5 20,12 8,19"/></svg></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="projects">
+    <div class="wrap">
+      <div class="fi" style="text-align:center">
+        <div class="tag" style="display:flex;justify-content:center">Recent work</div>
+        <h2 class="h2">Jobs around the Peninsula</h2>
+      </div>
+      <div class="prj-g">
+        <div class="prj-c fi"><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/oECKc1PBCRjKy6bkZNRD/media/6924301d46b2e7c959784f0b.jpg" alt="Project"></div>
+        <div class="prj-c fi"><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/oECKc1PBCRjKy6bkZNRD/media/692430442398d3304fa65ca5.jpeg" alt="Project"></div>
+        <div class="prj-c fi"><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/oECKc1PBCRjKy6bkZNRD/media/69243079e7b0949a9b0e4e15.jpg" alt="Project"></div>
+        <div class="prj-c fi"><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/oECKc1PBCRjKy6bkZNRD/media/69243118e4747c3e51bf07de.jpg" alt="Project"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec areas" id="areas">
+    <div class="wrap">
+      <div class="fi"><div class="tag">Areas</div><h2 class="h2">Where we work</h2></div>
+      <div class="area-g">
+        <div class="area-c fi"><h3>Frankston &amp; South</h3><ul><li>Frankston</li><li>Frankston South</li><li>Karingal</li><li>Langwarrin</li></ul></div>
+        <div class="area-c fi"><h3>Mornington Peninsula</h3><ul><li>Mornington</li><li>Mount Eliza</li><li>Mount Martha</li><li>Seaford</li><li>Carrum Downs</li></ul></div>
+        <div class="area-c fi"><h3>Greater Melbourne</h3><ul><li>Bayside</li><li>Cranbourne</li><li>Dandenong</li><li>Cheltenham</li></ul></div>
+        <div class="area-c fi"><h3>Commercial &amp; Industrial</h3><ul><li>Retail &amp; shops</li><li>Offices</li><li>Warehouses</li><li>Local businesses</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq">
+    <div class="wrap">
+      <div class="fi" style="text-align:center">
+        <div class="tag" style="display:flex;justify-content:center">FAQ</div>
+        <h2 class="h2">Common questions</h2>
+      </div>
+      <div class="faq-g">
+        <div class="fq fi"><button class="fq-q" onclick="tFaq(this)">What do I do in an electrical emergency?<svg class="fq-chev" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="fq-a"><div class="fq-ai">Kill the power at the main switchboard if it's safe to. Then call us on <b>0401 663 400</b>. We do 24/7 emergency callouts across Frankston &amp; the Peninsula.</div></div></div>
+        <div class="fq fi"><button class="fq-q" onclick="tFaq(this)">Do you install split-system air con?<svg class="fq-chev" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="fq-a"><div class="fq-ai">Yep — supply, install, service and repair all major brands. We also help with VEU rebates if your unit qualifies.</div></div></div>
+        <div class="fq fi"><button class="fq-q" onclick="tFaq(this)">How often should I service my AC?<svg class="fq-chev" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="fq-a"><div class="fq-ai">Once a year is ideal. Keeps it running efficiently, saves on power bills, and catches problems early.</div></div></div>
+        <div class="fq fi"><button class="fq-q" onclick="tFaq(this)">What areas do you cover?<svg class="fq-chev" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="fq-a"><div class="fq-ai">Frankston, Frankston South, Seaford, Langwarrin, Mornington, Mt Eliza, Mt Martha, Carrum Downs, Bayside, and wider Melbourne.</div></div></div>
+        <div class="fq fi"><button class="fq-q" onclick="tFaq(this)">What licences do you hold?<svg class="fq-chev" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="fq-a"><div class="fq-ai"><b>REC 31547</b> (Registered Electrical Contractor), <b>RTA AU45123</b> (Refrigeration Trading), <b>VBA 111883</b> (Victorian Building Authority).</div></div></div>
+        <div class="fq fi"><button class="fq-q" onclick="tFaq(this)">Can you help with government rebates?<svg class="fq-chev" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="fq-a"><div class="fq-ai">Yes. We assess eligibility, guide you to approved units, and handle the VEU rebate claim. Discounts from $70 up to $5,530 depending on the job.</div></div></div>
+        <div class="fq fi"><button class="fq-q" onclick="tFaq(this)">Do you do free quotes?<svg class="fq-chev" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="fq-a"><div class="fq-ai">Always. Free quotes on all electrical, heating, cooling, and safety audit work. No pressure.</div></div></div>
+        <div class="fq fi"><button class="fq-q" onclick="tFaq(this)">Too small a job?<svg class="fq-chev" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button><div class="fq-a"><div class="fq-ai">No such thing. From a single powerpoint to a full rewire — residential, commercial, industrial. We do it all.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec cta">
+    <div class="wrap">
+      <div class="fi">
+        <h2>Need an electrician or<br>air con sorted?</h2>
+        <p class="cta-p">Free quotes, fast response, no mucking around. Frankston, the Peninsula &amp; Greater Melbourne.</p>
+        <div class="cta-btns">
+          <a href="#contact" class="btn btn-w">Get a Free Quote</a>
+          <a href="tel:0401663400" class="btn cta-tel-btn">Call 0401 663 400</a>
+        </div>
+        <div class="cta-info">
+          <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> 24/7 Emergency</span>
+          <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> Fully Licensed</span>
+          <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg> Local &amp; Trusted</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="ftr">
+    <div class="wrap">
+      <div class="ftr-g">
+        <div class="ftr-brand">
+          <a href="#" class="lg"><img src="https://assets.cdn.filesafe.space/oECKc1PBCRjKy6bkZNRD/media/692452aae4747c6f50c30772.png" alt="FEAG"><div><div class="lg-t">FEAG</div><div class="lg-s">Frankston Electrical &amp; Air Conditioning Group</div></div></a>
+          <p>Licensed electrical &amp; HVAC services for homes, businesses &amp; real estate. Frankston, Mornington Peninsula &amp; Greater Melbourne.</p>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <div class="ftr-links"><a href="#services">Electrical Repairs</a><a href="#services">Switchboard Upgrades</a><a href="#services">Air Con Install</a><a href="#services">HVAC Servicing</a><a href="#services">Safety Audits</a><a href="#services">Emergency Callouts</a></div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <div class="ftr-links"><a href="#services">Services</a><a href="#why">Why Us</a><a href="#rebates">Rebates</a><a href="#calculator">Calculator</a><a href="#about">About Ben</a><a href="#areas">Areas</a><a href="#faq">FAQ</a></div>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <div class="ftr-ci"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:0401663400">0401 663 400</a></div>
+          <div class="ftr-ci"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg><a href="mailto:admin@frankstonelectricalairgroup.com" style="word-break:break-all">admin@frankstonelectricalairgroup.com</a></div>
+          <div class="ftr-ci"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Frankston VIC 3199</div>
+          <div class="ftr-ci" style="margin-top:6px"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>Mon–Sat 9am–8pm<br>Sun 10am–8pm<br>Emergency: <b style="color:var(--green)">24hrs</b></span></div>
+        </div>
+      </div>
+      <div class="ftr-bot">
+        <p>&copy; 2025 Frankston Electrical &amp; Air Conditioning Group</p>
+        <div class="ftr-lic"><span>REC 31547</span><span>RTA AU45123</span><span>VBA 111883</span></div>
+      </div>
+    </div>
+    <div class="ack">FEAG lives and works proudly on Boonwurrung Country, land of the Kulin Nation. We acknowledge and pay respects to Elders past, present and emerging.</div>
+  </footer>
+
+  <div class="mock">⚡ <b>MOCKUP</b> — Website redesign concept for Frankston Electrical &amp; Air Conditioning Group</div>
+
+  <div class="mob-bar">
+    <a href="#contact" class="mb-q">Free Quote</a>
+    <a href="tel:0401663400" class="mb-c">Call Now</a>
+  </div>
+
+  <script>
+    /* Header scroll */
+    const hdr=document.getElementById('hdr');
+    window.addEventListener('scroll',()=>{hdr.classList.toggle('s',scrollY>40)},{passive:true});
+
+    /* Mobile nav */
+    const hamBtn=document.getElementById('hamBtn'),mobNav=document.getElementById('mobNav');
+    let mobOpen=false;
+    hamBtn.addEventListener('click',()=>{mobOpen=!mobOpen;mobNav.classList.toggle('open',mobOpen);document.body.classList.toggle('body-lock',mobOpen)});
+    function closeMob(){mobOpen=false;mobNav.classList.remove('open');document.body.classList.remove('body-lock')}
+
+    /* FAQ */
+    function tFaq(b){const i=b.parentElement,a=i.querySelector('.fq-a'),act=i.classList.contains('act');document.querySelectorAll('.fq').forEach(e=>{e.classList.remove('act');e.querySelector('.fq-a').style.maxHeight=null});if(!act){i.classList.add('act');a.style.maxHeight=a.scrollHeight+'px'}}
+
+    /* Scroll animations */
+    const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+    document.querySelectorAll('.fi').forEach(e=>obs.observe(e));
+
+    /* Smooth scroll */
+    document.querySelectorAll('a[href^="#"]').forEach(l=>{l.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(l.getAttribute('href'));if(t){closeMob();t.scrollIntoView({behavior:'smooth',block:'start'})}})});
+
+    /* Video */
+    function playVid(){const w=document.getElementById('vidWrap');w.innerHTML='<iframe src="https://www.youtube.com/embed/lBaRJRH5lT0?autoplay=1" frameborder="0" allow="autoplay;encrypted-media" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%"></iframe>';w.style.cursor='default'}
+
+    /* ===== REBATE CALCULATOR ===== */
+    let C={type:'household',sys:null,ex:null,sz:null};
+
+    /* Data from energy.vic.gov.au/victorian-energy-upgrades/products/heating-and-cooling-discounts */
+    const D={
+      household:{
+        split:{
+          'gas-room':{'3kW':630,'5kW':980,'7kW':1290,'9kW':1610},
+          'gas-ducted':{'3kW':630,'5kW':1050,'7kW':1680,'8kW':2520},
+          'electric':{'3kW':210,'5kW':420,'7kW':630,'9kW':840},
+          'old-rc':{'3kW':210,'5kW':210,'7kW':210,'9kW':210},
+          'none':{'3kW':70,'5kW':90,'7kW':110,'9kW':140}
+        },
+        ducted:{
+          'gas-room':{'10kW':1260,'16kW':2100,'22kW':2940},
+          'gas-ducted':{'10kW':2520,'16kW':4200,'22kW':5530},
+          'electric':{'10kW':2100,'16kW':3780,'22kW':5460},
+          'old-rc':{'10kW':490,'16kW':770,'22kW':910},
+          'none':{'10kW':140,'16kW':280,'22kW':410}
+        }
+      },
+      business:{
+        split:{
+          'gas-room':{'3kW':420,'5kW':630,'7kW':840,'9kW':1050},
+          'gas-ducted':{'3kW':420,'5kW':840,'7kW':1260,'8kW':1680},
+          'electric':{'3kW':140,'5kW':280,'7kW':350,'9kW':490},
+          'old-rc':{'3kW':210,'5kW':280,'7kW':350,'9kW':490},
+          'none':{'3kW':70,'5kW':90,'7kW':110,'9kW':140}
+        },
+        ducted:{
+          'gas-room':{'16kW':1260,'25kW':1960,'32kW':2520},
+          'gas-ducted':{'16kW':2590,'25kW':3850,'32kW':6230,'56kW':8820},
+          'electric':{'16kW':1400,'25kW':2800,'32kW':3500,'56kW':4060},
+          'old-rc':{'16kW':910,'25kW':1400,'32kW':3010,'56kW':3290},
+          'none':{'16kW':490,'25kW':910,'32kW':1400,'56kW':1820}
+        }
+      }
+    };
+
+    const SAV={split:460,ducted:1140};
+
+    function setType(t,b){
+      C={type:t,sys:null,ex:null,sz:null};
+      b.parentElement.querySelectorAll('.ct-btn').forEach(x=>x.classList.remove('sel'));
+      b.classList.add('sel');
+      document.querySelectorAll('#cSys .c-opt,#cEx .c-opt').forEach(x=>x.classList.remove('sel'));
+      document.getElementById('cSz').innerHTML='';
+      document.getElementById('cRes').classList.remove('show');
+    }
+
+    function pick(b,f,v){
+      C[f]=v;
+      b.parentElement.querySelectorAll('.c-opt').forEach(x=>x.classList.remove('sel'));
+      b.classList.add('sel');
+      if(f==='sys'){C.sz=null;rSz()}
+      if(f!=='sz')document.getElementById('cRes').classList.remove('show');
+      if(f==='ex'||f==='sz')calc();
+    }
+
+    function rSz(){
+      const c=document.getElementById('cSz');
+      let sizes=[];
+      if(C.sys==='split') sizes=['3kW','5kW','7kW','9kW'];
+      else if(C.type==='household') sizes=['10kW','16kW','22kW'];
+      else sizes=['16kW','25kW','32kW','56kW'];
+      const lbl={'3kW':'Bedroom','5kW':'Living','7kW':'Large Room','9kW':'Open Plan',
+                  '8kW':'Multi-Split','10kW':'Small Home','16kW':'Medium','22kW':'Large',
+                  '25kW':'Medium','32kW':'Large','56kW':'XL Commercial'};
+      c.innerHTML=sizes.map(s=>`<button class="c-sz" onclick="pickSz(this,'${s}')"><b>${s}</b>${lbl[s]||s}</button>`).join('');
+    }
+
+    function pickSz(b,s){
+      C.sz=s;
+      b.parentElement.querySelectorAll('.c-sz').forEach(x=>x.classList.remove('sel'));
+      b.classList.add('sel');
+      calc();
+    }
+
+    function calc(){
+      if(!C.sys||!C.ex||!C.sz) return;
+      const sd=D[C.type]&&D[C.type][C.sys]&&D[C.type][C.sys][C.ex];
+      if(!sd) return;
+      let amt=sd[C.sz];
+      if(amt===undefined){const k=Object.keys(sd);amt=sd[k[k.length-1]]||0}
+      const r=document.getElementById('cRes');
+      document.getElementById('cAmt').textContent='Up to $'+amt.toLocaleString();
+      document.getElementById('cSav').textContent='Plus ~$'+(SAV[C.sys]||460)+'/yr in energy bill savings';
+
+      /* Show minimum customer contribution */
+      let minCont='$200';
+      if(C.sys==='ducted') minCont='$1,000';
+      else{const kw=parseInt(C.sz);if(kw>=10) minCont='$1,000'}
+      document.getElementById('cMin').textContent='Min. customer contribution: '+minCont+' (inc. GST)';
+
+      r.classList.add('show');
+      r.scrollIntoView({behavior:'smooth',block:'nearest'});
+    }
+  </script>
+</body>
+</html>
