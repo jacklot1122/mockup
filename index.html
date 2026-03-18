@@ -295,6 +295,9 @@
       .mob-form-sec{display:block}
       .nav-d{display:none}
       .ham{display:block}
+      .ph{font-size:.75rem;gap:4px}
+      .ph svg{width:13px;height:13px}
+      .hdr-btn{display:none}
       .srv-g{grid-template-columns:1fr 1fr}
       .why-g{grid-template-columns:1fr 1fr}
       .reb-g{grid-template-columns:1fr}
@@ -312,7 +315,8 @@
       body{padding-bottom:calc(56px + env(safe-area-inset-bottom,0px))}
       .sec{padding:48px 0}
       .wrap{padding:0 16px}
-      .hero{padding:88px 0 40px}
+      .hero{padding:88px 0 40px;min-height:100svh;min-height:100vh;display:flex;align-items:center}
+      .hero .wrap{width:100%}
       .hero h1{font-size:clamp(1.6rem,6.5vw,2.2rem)}
       .hero-btns{flex-direction:column;align-items:stretch}
       .hero-btns .btn{justify-content:center;min-height:48px;font-size:.92rem}
@@ -378,7 +382,8 @@
     }
     @media(max-width:380px){
       .hero-facts{flex-direction:column;align-items:center;gap:10px}
-      .hdr-btn{display:none}
+      .ph span{display:none}
+      .lg-s{display:none}
     }
   </style>
 </head>
@@ -402,7 +407,7 @@
         <div class="hdr-r">
           <a href="tel:0401663400" class="ph">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-            0401 663 400
+            <span>0401 663 400</span>
           </a>
           <a href="#contact" class="btn btn-p hdr-btn">Free Quote</a>
         </div>
