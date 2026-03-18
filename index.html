@@ -264,6 +264,27 @@
     /* ANIMATIONS */
     .fi{opacity:0;transform:translateY(20px);transition:opacity .5s,transform .5s}.fi.v{opacity:1;transform:none}
 
+    /* MOBILE CONTACT FORM */
+    .mob-form-sec{display:none}
+    .mob-form-sec .hero-form{background:var(--g50);border:1px solid var(--g200);max-width:100%}
+    .mob-form-sec .hero-form h3{color:var(--g900)}
+    .mob-form-sec .hero-form .fs{color:var(--g500)}
+    .mob-form-sec .fg label{color:var(--g600)}
+    .mob-form-sec .fg input,.mob-form-sec .fg select,.mob-form-sec .fg textarea{background:#fff;border:1px solid var(--g200);color:var(--g900)}
+    .mob-form-sec .fg input::placeholder,.mob-form-sec .fg textarea::placeholder{color:var(--g400)}
+    .mob-form-sec .fg select option{background:#fff;color:var(--g900)}
+    .mob-form-sec .f-note{color:var(--g400)}
+
+    /* REBATE CARD INLINE (tablet) */
+    .reb-card-inline{display:none;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:20px;text-align:center;margin-top:24px}
+    .reb-card-inline .amt{font-family:'Plus Jakarta Sans',sans-serif;font-size:2rem;font-weight:800;color:var(--amber);line-height:1}
+    .reb-card-inline .amts{font-size:.82rem;color:rgba(255,255,255,.42);margin:4px 0 12px}
+    .reb-card-inline .reb-tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+
+    /* PROOF BAR FADE INDICATOR */
+    .proof{position:relative}
+    .proof::after{content:'';display:none;position:absolute;right:0;top:0;bottom:0;width:40px;background:linear-gradient(to right,transparent,var(--g50));pointer-events:none;z-index:1}
+
     /* ===== MOBILE ===== */
     @media(max-width:1024px){
       .hero-g{grid-template-columns:1fr;text-align:center}
@@ -271,11 +292,14 @@
       .hero-btns{justify-content:center}
       .hero-facts{justify-content:center}
       .hero-form-wrap{display:none}
+      .mob-form-sec{display:block}
       .nav-d{display:none}
       .ham{display:block}
       .srv-g{grid-template-columns:1fr 1fr}
       .why-g{grid-template-columns:1fr 1fr}
-      .reb-g{grid-template-columns:1fr}.reb-card-w{display:none}
+      .reb-g{grid-template-columns:1fr}
+      .reb-card-w{display:none}
+      .reb-card-inline{display:block}
       .reb h2{font-size:clamp(1.5rem,6vw,2rem)}
       .reb-desc{font-size:.88rem;line-height:1.7}
       .rs span{font-size:.86rem}
@@ -285,7 +309,7 @@
       .ftr-g{grid-template-columns:1fr 1fr}
     }
     @media(max-width:640px){
-      body{padding-bottom:56px}
+      body{padding-bottom:calc(56px + env(safe-area-inset-bottom,0px))}
       .sec{padding:48px 0}
       .wrap{padding:0 16px}
       .hero{padding:88px 0 40px}
@@ -295,53 +319,57 @@
       .hero-facts{gap:16px}
       .hf{gap:6px}
       .srv-g{grid-template-columns:1fr}
+      .srv-c p{font-size:.88rem}
       .why-g{grid-template-columns:1fr}
       .why-c{padding:18px 16px}
       .why-c h3{font-size:.92rem}
-      .why-c p{font-size:.84rem}
+      .why-c p{font-size:.88rem}
       .faq-g{grid-template-columns:1fr}
       .fq-q{padding:16px;font-size:.88rem;min-height:48px}
-      .fq-ai{padding:0 16px 16px;font-size:.84rem}
+      .fq-ai{padding:0 16px 16px;font-size:.88rem}
       .area-g{grid-template-columns:1fr}
-      .area-c li{font-size:.82rem;padding:5px 0 5px 14px}
+      .area-c li{font-size:.86rem;padding:5px 0 5px 14px}
       .cta-btns{flex-direction:column;align-items:stretch}
       .cta-btns .btn{justify-content:center;min-height:48px;font-size:.92rem}
       .ftr-g{grid-template-columns:1fr;gap:20px}
       .ftr-links a{font-size:.84rem;padding:4px 0;min-height:44px;display:flex;align-items:center}
       .ftr-bot{flex-direction:column;align-items:flex-start}
-      .proof-row{gap:10px;justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px}
+      .proof::after{display:block}
+      .proof-row{gap:10px;justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px;padding-right:40px}
       .proof-row::-webkit-scrollbar{display:none}
-      .pi{font-size:.74rem;white-space:nowrap;flex-shrink:0}
+      .pi{font-size:.78rem;white-space:nowrap;flex-shrink:0}
       .calc-box{padding:20px 14px}
       .c-opts{grid-template-columns:1fr}
       .c-opt{min-height:48px;padding:12px 14px;font-size:.86rem}
       .c-wide{grid-column:auto}
       .c-sizes{grid-template-columns:1fr 1fr}
       .c-sz{min-height:48px;padding:12px 8px;font-size:.82rem}
-      .ct-btn{min-height:44px;font-size:.86rem}
+      .ct-btn{min-height:48px;font-size:.86rem}
       .about-float{padding:10px;gap:6px;bottom:10px;left:10px;right:10px}
       .af-n{font-size:.95rem}.af-l{font-size:.58rem}
       .about-txt h3{font-size:1.1rem}
       .about-txt p{font-size:.88rem}
       .about-tags{gap:6px}
       .a-tag{font-size:.74rem;padding:6px 10px}
-      .prj-g{gap:8px}
+      .prj-g{grid-template-columns:1fr;gap:12px}
+      .prj-c{aspect-ratio:4/3}
       .reb .sec{padding:48px 0}
       .reb h2{font-size:clamp(1.4rem,6.5vw,1.85rem);line-height:1.25}
       .reb-steps{gap:12px;margin-bottom:22px}
       .rs-n{width:28px;height:28px;min-width:28px}
       .rs span{font-size:.84rem}
-      .reb-desc{font-size:.84rem}
+      .reb-desc{font-size:.88rem}
       .reb .btn{min-height:48px;font-size:.92rem;width:100%;justify-content:center}
       .cta h2{font-size:clamp(1.4rem,5vw,1.8rem)}
-      .srv-c img{height:160px}
+      .srv-c img{height:180px}
       .srv-link{min-height:44px;display:inline-flex;align-items:center}
       .nav-a{min-height:44px;display:flex;align-items:center}
       .fg input,.fg select,.fg textarea{font-size:16px;padding:12px 14px}
+      .ham{padding:14px}
       .mock{display:none}
     }
     /* Sticky mobile CTA bar */
-    .mob-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:98;background:var(--navy);border-top:1px solid rgba(255,255,255,.1);padding:8px 12px;gap:8px}
+    .mob-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:98;background:var(--navy);border-top:1px solid rgba(255,255,255,.1);padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px));gap:8px}
     .mob-bar a{flex:1;text-align:center;font-size:.84rem;min-height:44px;display:flex;align-items:center;justify-content:center;border-radius:8px;font-weight:600}
     .mob-bar .mb-q{background:var(--blue);color:#fff}
     .mob-bar .mb-c{background:transparent;border:1.5px solid rgba(255,255,255,.25);color:#fff}
@@ -547,6 +575,15 @@
             <div class="rs"><div class="rs-n">4</div><span>We lodge the rebate paperwork for you</span></div>
           </div>
           <a href="#calculator" class="btn btn-a">Estimate My Rebate ↓</a>
+          <div class="reb-card-inline">
+            <div class="amt">$5,530</div>
+            <div class="amts">For households replacing ducted gas heating</div>
+            <div class="reb-tags">
+              <span class="reb-tag">✓ All Victorians eligible</span>
+              <span class="reb-tag">✓ VEU-approved units</span>
+              <span class="reb-tag">✓ Paperwork handled</span>
+            </div>
+          </div>
         </div>
         <div class="reb-card-w fi">
           <div class="reb-card">
@@ -700,6 +737,46 @@
     </div>
   </section>
 
+  <section class="sec mob-form-sec" id="contact-mobile">
+    <div class="wrap">
+      <div class="fi">
+        <div class="tag">Contact</div>
+        <h2 class="h2">Get a free quote</h2>
+        <p class="sub">Fill in your details and we'll call you back within 2 hours.</p>
+      </div>
+      <div class="hero-form fi" style="margin-top:24px">
+        <h3>Request a Quote</h3>
+        <p class="fs">We'll call you back within 2 hours</p>
+        <form onsubmit="event.preventDefault();">
+          <div class="fr">
+            <div class="fg"><label>Name</label><input type="text" placeholder="Your name"></div>
+            <div class="fg"><label>Phone</label><input type="tel" placeholder="0400 000 000"></div>
+          </div>
+          <div class="fg"><label>Email</label><input type="email" placeholder="you@email.com"></div>
+          <div class="fg">
+            <label>What do you need?</label>
+            <select>
+              <option>Pick one...</option>
+              <option>Electrical — Repairs</option>
+              <option>Electrical — New Install</option>
+              <option>Switchboard Upgrade</option>
+              <option>Air Con — Install</option>
+              <option>Air Con — Service/Repair</option>
+              <option>Heating &amp; Ventilation</option>
+              <option>Safety Audit</option>
+              <option>Emergency Callout</option>
+              <option>Rebate Enquiry</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="fg"><label>Details (optional)</label><textarea placeholder="Brief description of the job..."></textarea></div>
+          <button type="submit" class="btn btn-p f-submit">Send Request</button>
+          <p class="f-note">No spam. Quick response. Your info stays private.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <section class="sec cta">
     <div class="wrap">
       <div class="fi">
@@ -752,7 +829,7 @@
   <div class="mock">⚡ <b>MOCKUP</b> — Website redesign concept for Frankston Electrical &amp; Air Conditioning Group</div>
 
   <div class="mob-bar">
-    <a href="#contact" class="mb-q">Free Quote</a>
+    <a href="#contact-mobile" class="mb-q">Free Quote</a>
     <a href="tel:0401663400" class="mb-c">Call Now</a>
   </div>
 
@@ -774,8 +851,8 @@
     const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
     document.querySelectorAll('.fi').forEach(e=>obs.observe(e));
 
-    /* Smooth scroll */
-    document.querySelectorAll('a[href^="#"]').forEach(l=>{l.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(l.getAttribute('href'));if(t){closeMob();t.scrollIntoView({behavior:'smooth',block:'start'})}})});
+    /* Smooth scroll — redirect #contact to #contact-mobile on small screens */
+    document.querySelectorAll('a[href^="#"]').forEach(l=>{l.addEventListener('click',e=>{e.preventDefault();let href=l.getAttribute('href');if(href==='#contact'&&window.innerWidth<=1024){href='#contact-mobile'}const t=document.querySelector(href);if(t){closeMob();t.scrollIntoView({behavior:'smooth',block:'start'})}})});
 
     /* Video */
     function playVid(){const w=document.getElementById('vidWrap');w.innerHTML='<iframe src="https://www.youtube.com/embed/lBaRJRH5lT0?autoplay=1" frameborder="0" allow="autoplay;encrypted-media" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%"></iframe>';w.style.cursor='default'}
